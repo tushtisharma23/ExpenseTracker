@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <h1>ExpenseTracker</h1>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="index.html">Dashboard</a>
+
+            <a href="profile.html">Profile</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- PROFILE -->
+
+    <div class="profile-page">
+
+        <div class="profile-big-circle"
+             id="profileCircle">
+        </div>
+
+        <h2 id="profileUsername"></h2>
+
+        <p class="profile-email">
+            Logged In User
+        </p>
+
+
+        <div class="profile-stats">
+            <div class="limit-box">
+
+                <h3>Monthly Budget Limit</h3>
+
+                <input
+                        type="number"
+                        id="profileLimit"
+                        placeholder="Enter Budget Limit">
+
+                <button onclick="saveLimit()">
+                    Save Limit
+                </button>
+
+            </div>
+
+            <div class="profile-box">
+
+                <h3 id="profileTotal">₹0</h3>
+
+                <p>Total Expenses</p>
+
+            </div>
+
+
+            <div class="profile-box">
+
+                <h3 id="profileEntries">0</h3>
+
+                <p>Total Entries</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const username =
+        localStorage.getItem("loggedInUser");
+
+    document.getElementById("profileUsername")
+        .innerText = username;
+
+    document.getElementById("profileCircle")
+        .innerText =
+        username.charAt(0).toUpperCase();
+
+
+    const expenses =
+        JSON.parse(
+            localStorage.getItem(`expenses_${username}`)
+        ) || [];
+
+    let total = 0;
+
+    expenses.forEach(expense => {
+
+        total += Number(expense.amount);
+
+    });
+
+    document.getElementById("profileTotal")
+        .innerText = "₹" + total;
+
+    document.getElementById("profileEntries")
+        .innerText = expenses.length;
+    const limitKey =
+        `limit_${username}`;
+
+    const savedLimit =
+        localStorage.getItem(limitKey);
+
+    if(savedLimit){
+
+        document.getElementById("profileLimit")
+            .value = savedLimit;
+
+    }
+
+
+    function saveLimit(){
+
+        const limit =
+            document.getElementById("profileLimit").value;
+
+        localStorage.setItem(
+            limitKey,
+            limit
+        );
+
+        alert("Budget Limit Saved");
+
+    }
+
+</script>
+
+</body>
+</html>

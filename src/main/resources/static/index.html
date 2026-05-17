@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <h1>ExpenseTracker</h1>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="index.html">Dashboard</a>
+
+            <a href="profile.html">Profile</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <div class="main-layout">
+
+        <!-- LEFT -->
+
+        <div class="left-section">
+
+            <div class="hero-text">
+
+                <h2>
+                    Track Expenses.<br>
+                    Stay In Control.
+                </h2>
+
+                <p>
+                    Manage your expenses beautifully
+                    with a clean modern dashboard.
+                </p>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="expense-card">
+
+                <h3>Add Expense</h3>
+
+                <input type="number"
+                       id="amount"
+                       placeholder="Enter Amount">
+
+                <input type="text"
+                       id="category"
+                       placeholder="Enter Category">
+
+                <input type="date"
+                       id="date">
+
+                <input type="text"
+                       id="description"
+                       placeholder="Enter Description">
+
+
+                <button onclick="addExpense()">
+                    Add Expense
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="right-section">
+
+            <div class="stat-card">
+
+                <p>Total Expenses</p>
+
+                <h2 id="totalExpense">₹0</h2>
+
+                <p id="warningMessage"></p>
+
+            </div>
+
+
+            <div class="list-card">
+
+                <div class="list-top">
+                    <h3>Recent Expenses</h3>
+                </div>
+
+                <ul id="expenseList"></ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
