@@ -39,5 +39,17 @@ A full-stack expense tracker web application built using Java, Spring Boot, HTML
 - Expense analytics
 - Charts and reports
 
+  ## Screenshots
+
+### Dashboard
+![Dashboard](images/Dashboard.png)
+
+### Login Page
+![Login](images/login.png)
+
+### Profile Page
+![Profile](images/profile.png)
+
 ## Author
 Tushti Sharma
+
